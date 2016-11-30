@@ -199,9 +199,10 @@ public class SensorDataProducer {
 			PutRecordRequest putRecordRequest = new PutRecordRequest();
 			putRecordRequest.setStreamName(STREAM_NAME);
 
-			cityTrack = (cityTrack % cityLen) + 1;
+			
 
 			if (seconds % 10 != 0) {
+				cityTrack = (cityTrack % cityLen) + 1;
 				if (cities[cityTrack - 1].equalsIgnoreCase("New York")) {
 					trackLat = nyLat;
 					trackLong = nyLat;
@@ -318,11 +319,12 @@ public class SensorDataProducer {
 						dataHeader.put("data", anomalyData);
 
 					} else {
-						calendar.add(Calendar.SECOND, 1);
-						timestamp = sdf.format(calendar.getTime());
-						System.out.println(timestamp);
+						
 						// send aggregation data
 						if (cities[cityTrack - 1].equalsIgnoreCase("New York")) {
+							calendar.add(Calendar.SECOND, 1);
+							timestamp = sdf.format(calendar.getTime());
+							System.out.println(timestamp);
 							aggregationData = createAggregationObject("New York", nyLat, nyLong, avgNy, avgnyhum,
 									timestamp);
 						}
