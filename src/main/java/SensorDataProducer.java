@@ -50,7 +50,19 @@ public class SensorDataProducer {
 	private static final String SECRET_KEY = "";
 
 	private static void init() throws Exception {
-		kinesis = new AmazonKinesisClient(new BasicAWSCredentials(ACCESS_KEY, SECRET_KEY));
+        AWSCredentials credentials = null;
+        try {
+            credentials = new ProfileCredentialsProvider()
+                    .getCredentials();
+        } catch (Exception e) {
+            throw new AmazonClientException(
+                    "Cannot load the credentials from the credential profiles file. " +
+                            "Please make sure that your credentials file is at the correct " +
+                            "location (~/.aws/credentials), and is in valid format.",
+                    e);
+        }
+
+		kinesis = new AmazonKinesisClient(credentials);
 		Region usWest2 = Region.getRegion(Regions.US_WEST_2);
 		kinesis.setRegion(usWest2);
 	}
