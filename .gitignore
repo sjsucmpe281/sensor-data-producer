@@ -1,0 +1,6 @@
+.idea
+sensor-data-producer.iml
+target/*
+.classpath
+.project
+.settings
