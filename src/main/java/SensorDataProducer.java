@@ -531,44 +531,44 @@ public class SensorDataProducer {
 		List<Sensor> sfSensors = new ArrayList<>();
 		Sensor sfSensor1 = new Sensor();
 		sfSensor1.setSensorName("sf1");
-		sfSensor1.setSensorId(76301);
+		sfSensor1.setSensorId(76305);
 		sfSensors.add(sfSensor1);
 
 		Sensor sfSensor2 = new Sensor();
 		sfSensor2.setSensorName("sf2");
-		sfSensor2.setSensorId(76302);
+		sfSensor2.setSensorId(76306);
 		sfSensors.add(sfSensor2);
 
 		Sensor sfSensor3 = new Sensor();
 		sfSensor3.setSensorName("sf3");
-		sfSensor3.setSensorId(76303);
+		sfSensor3.setSensorId(76307);
 		sfSensors.add(sfSensor3);
 
 		Sensor sfSensor4 = new Sensor();
 		sfSensor4.setSensorName("sf4");
-		sfSensor4.setSensorId(76304);
+		sfSensor4.setSensorId(76308);
 		sfSensors.add(sfSensor4);
 
 		// Arizona City Sensor
 		List<Sensor> azSensors = new ArrayList<>();
 		Sensor azSensor1 = new Sensor();
 		azSensor1.setSensorName("az1");
-		azSensor1.setSensorId(76301);
+		azSensor1.setSensorId(76309);
 		azSensors.add(azSensor1);
 
 		Sensor azSensor2 = new Sensor();
 		azSensor2.setSensorName("az2");
-		azSensor2.setSensorId(76302);
+		azSensor2.setSensorId(763010);
 		azSensors.add(azSensor2);
 
 		Sensor azSensor3 = new Sensor();
 		azSensor3.setSensorName("az3");
-		azSensor3.setSensorId(76303);
+		azSensor3.setSensorId(763011);
 		azSensors.add(azSensor3);
 
 		Sensor azSensor4 = new Sensor();
 		azSensor4.setSensorName("az4");
-		azSensor4.setSensorId(76304);
+		azSensor4.setSensorId(763012);
 		azSensors.add(azSensor4);
 
 		sensorMap.put("New York", nySensors);
