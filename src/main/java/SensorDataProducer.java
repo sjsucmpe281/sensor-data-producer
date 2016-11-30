@@ -45,9 +45,9 @@ public class SensorDataProducer {
 
     private static final String STREAM_NAME = "teststream";
 
-    private static final String ACCESS_KEY = "AKIAIQTGQYLPNFGDRS2A";
+    private static final String ACCESS_KEY = "";
 
-    private static final String SECRET_KEY = "WiDLr2CSzvvqz9890qGfKq/qB91Ez5F2CPxA29BT";
+    private static final String SECRET_KEY = "";
 
     private static void init() throws Exception {
         kinesis = new AmazonKinesisClient(new BasicAWSCredentials (ACCESS_KEY, SECRET_KEY));
