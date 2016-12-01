@@ -41,7 +41,7 @@ public class SensorDataProducer {
 
 	private static AmazonKinesisClient kinesis;
 
-	private static final String STREAM_NAME = "teststream";
+	private static final String STREAM_NAME = "sensor-aggregation-data";
 
 	private static final String ANOMALY_STREAM_NAME = "anomalystream";
 
@@ -50,7 +50,19 @@ public class SensorDataProducer {
 	private static final String SECRET_KEY = "";
 
 	private static void init() throws Exception {
-		kinesis = new AmazonKinesisClient(new BasicAWSCredentials(ACCESS_KEY, SECRET_KEY));
+
+		AWSCredentials credentials = null;
+		try {
+			credentials = new ProfileCredentialsProvider()
+					.getCredentials();
+		} catch (Exception e) {
+			throw new AmazonClientException(
+					"Cannot load the credentials from the credential profiles file. " +
+							"Please make sure that your credentials file is at the correct " +
+							"location (~/.aws/credentials), and is in valid format.",
+					e);
+		}
+		kinesis = new AmazonKinesisClient(credentials);
 		Region usWest2 = Region.getRegion(Regions.US_WEST_2);
 		kinesis.setRegion(usWest2);
 	}
@@ -158,16 +170,16 @@ public class SensorDataProducer {
 
 		// San Fransisco
 		double[] sfLatitudes = { 37.809085, 37.772066, 37.806053, 37.745346 };
-		double sfLat = 37.774929;
+		double sfLat = 37.809085;
 		double[] sfLongitudes = { -122.412040, -122.431153, -122.410331, -122.420074 };
-		double sfLong = -122.419416;
+		double sfLong = -122.41204;
 		int sfLen = sfLatitudes.length;
 
 		// Arizona City
 		double[] azLatitudes = { 32.901836, 32.879502, 32.755893, 32.755896 };
-		double azLat = 32.755893;
+		double azLat = 32.752949;
 		double[] azLongitudes = { -111.742252, -111.757352, -111.670958, -111.554844 };
-		double azLong = -111.670958;
+		double azLong = -111.671257;
 		int azLen = azLatitudes.length;
 
 		// Anomaly
